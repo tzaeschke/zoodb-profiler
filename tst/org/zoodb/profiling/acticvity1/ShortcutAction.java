@@ -10,14 +10,7 @@ import org.zoodb.profiling.simulator.AbstractAction;
 
 public class ShortcutAction extends AbstractAction {
 
-	/* 
-	 * This action should detect a shortcut from conference to author
-	 * 
-	 * E.g. by taking the  the first author of author of the first publication 
-	 * of the set of publications for a conference (--> keynote speaker)
-	 * (non-Javadoc)
-	 * @see ch.ethz.globis.jdo.simulator.IAction#executeAction(javax.jdo.PersistenceManager)
-	 */
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		//task will be executed for 500 conferenceseries

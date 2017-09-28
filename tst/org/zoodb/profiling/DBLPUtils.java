@@ -12,7 +12,7 @@ public class DBLPUtils {
 	
 	/**
 	 * Returns a random number between between 1 and 5
-	 * @return
+	 * @return rating
 	 */
 	public static int getRating() {
 		return rand.nextInt(5) + 1;

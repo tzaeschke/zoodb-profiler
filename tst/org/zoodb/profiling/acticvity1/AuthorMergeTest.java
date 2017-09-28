@@ -9,6 +9,7 @@ import org.zoodb.profiling.simulator.AbstractAction;
 
 public class AuthorMergeTest extends AbstractAction {
 
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		int max = 100000;

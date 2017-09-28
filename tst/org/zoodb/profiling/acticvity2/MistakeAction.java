@@ -5,7 +5,6 @@ import javax.jdo.PersistenceManager;
 
 import org.zoodb.profiling.model2.Conference;
 import org.zoodb.profiling.model2.ConferenceSeries;
-import org.zoodb.profiling.model2.Publication;
 import org.zoodb.profiling.simulator.AbstractAction;
 
 public class MistakeAction extends AbstractAction {
@@ -18,6 +17,7 @@ public class MistakeAction extends AbstractAction {
 	 * (non-Javadoc)
 	 * @see ch.ethz.globis.jdo.simulator.IAction#executeAction(javax.jdo.PersistenceManager)
 	 */
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		//task will be executed for 500 conferenceseries

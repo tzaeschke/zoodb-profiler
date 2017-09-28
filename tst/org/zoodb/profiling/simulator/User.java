@@ -19,8 +19,7 @@ public abstract class User<V> implements Callable<V> {
 	private int actionCount = 0;
 	
 	private final ActionArchive actions;
-	private final Map<Class<?>,List<ActionResult>> actionResults = 
-			new HashMap<Class<?>,List<ActionResult>>();
+	private final Map<Class<?>,List<ActionResult>> actionResults = new HashMap<>();
 	
 	public User(PersistenceManager pm, ActionArchive actions, int actionRepeat) {
 		this.pm = pm;
@@ -28,6 +27,7 @@ public abstract class User<V> implements Callable<V> {
 		this.maxActions = actionRepeat;
 	}
 
+	@Override
 	public V call() throws Exception { 
 		
 		beforeExecution();
@@ -78,7 +78,7 @@ public abstract class User<V> implements Callable<V> {
 		List<ActionResult> resultForClass = actionResults.get(ar.getActionClass());
 		
 		if (resultForClass == null) {
-			resultForClass = new LinkedList<ActionResult>();
+			resultForClass = new LinkedList<>();
 			actionResults.put(ar.getActionClass(), resultForClass);
 		}
 		resultForClass.add(ar);
@@ -86,7 +86,7 @@ public abstract class User<V> implements Callable<V> {
 	
 	/**
 	 * Checks if the user can abort. 
-	 * @return
+	 * @return boolean
 	 */
 	public abstract boolean abort();
 	

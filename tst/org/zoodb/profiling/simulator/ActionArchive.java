@@ -12,13 +12,13 @@ public class ActionArchive {
 	private static final Random RND = new Random(0);
 	
 	public ActionArchive() {
-		actions = new ArrayList<IAction>();
-		weights = new ArrayList<Double>();
+		actions = new ArrayList<>();
+		weights = new ArrayList<>();
 	}
 	
 	/**
 	 * TODO: Returns the next action, given a probability distribution over all actions
-	 * @return
+	 * @return IAction
 	 */
 	public IAction getNextAction() {
 		int i = sampleActionByWeight();
@@ -32,7 +32,7 @@ public class ActionArchive {
 	
 	/**
 	 * Samples the next action according to their distribution using inverse transform sampling
-	 * @return
+	 * @return sample
 	 */
 	private int sampleActionByWeight() {
 		double tmp = RND.nextDouble();

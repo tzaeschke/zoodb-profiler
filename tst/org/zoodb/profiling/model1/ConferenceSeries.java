@@ -52,7 +52,6 @@ public class ConferenceSeries extends PersistenceCapableImpl     {
 	 * post: self.conferences -> size() = self.conferences@pre -> size() + 1 <br>
 	 *
 	 * @param conference a reference to association end of Conference
-	 * @throws Exception	 
 	 */
 	public void addConferences(Conference conference) {
 //		activateWrite("conferences");

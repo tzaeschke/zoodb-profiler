@@ -14,6 +14,7 @@ import org.zoodb.profiling.simulator.IAction;
 
 public class Action1 implements IAction {
 
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		DBLPQueries queries = new DBLPQueries(pm, Author.class, ConferenceSeries.class);
 		

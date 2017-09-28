@@ -14,6 +14,7 @@ public class ShortcutAction extends AbstractAction {
 	 * (non-Javadoc)
 	 * @see ch.ethz.globis.jdo.simulator.IAction#executeAction(javax.jdo.PersistenceManager)
 	 */
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		//task will be executed for 500 conferenceseries
@@ -67,7 +68,7 @@ public class ShortcutAction extends AbstractAction {
 //	
 //	}
 	
-	private void repeatXMaxShortcutImplemented(PersistenceManager pm,int max) {
+	private void repeatXMaxShortcutImplemented(PersistenceManager pm, int max) {
 //		int count = 0;
 //		
 //		pm.currentTransaction().begin();

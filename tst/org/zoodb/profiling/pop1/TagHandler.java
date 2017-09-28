@@ -16,11 +16,13 @@ public class TagHandler extends DefaultHandler {
 	private String tagName;
 	private String key;
 	
+	@Override
 	public void startElement(String namespaceURI, String localName, String rawName, Attributes atts) throws SAXException {
 		key = atts.getValue("key");		
 	}
 	
-    public void endElement(String namespaceURI, String localName, String rawName) throws SAXException {
+    @Override
+	public void endElement(String namespaceURI, String localName, String rawName) throws SAXException {
     	if (key != null) {
     		List<String> tmp = tag2Keys.get(tagName);
     		
@@ -35,7 +37,8 @@ public class TagHandler extends DefaultHandler {
     	}
     }
     
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    @Override
+	public void characters(char[] ch, int start, int length) throws SAXException {
     	tagName = new String(ch,start,length);
     }
 

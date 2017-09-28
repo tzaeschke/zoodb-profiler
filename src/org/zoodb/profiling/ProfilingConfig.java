@@ -54,7 +54,7 @@ public class ProfilingConfig {
 	
 	/**
 	 * Returns the root path where the configuration and profiler-exports are stored
-	 * @return
+	 * @return root dir
 	 */
 	public static String getExportRootDir() {
 		return ZooHelper.getDataStoreManager().getDefaultDbFolder();

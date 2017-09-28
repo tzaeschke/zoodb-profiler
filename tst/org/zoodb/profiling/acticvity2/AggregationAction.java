@@ -8,6 +8,7 @@ import org.zoodb.profiling.simulator.IAction;
 
 public class AggregationAction implements IAction {
 
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		int max = 10000;

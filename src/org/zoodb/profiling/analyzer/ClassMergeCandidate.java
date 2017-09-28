@@ -56,8 +56,9 @@ public class ClassMergeCandidate implements ICandidate {
 	
 	/**
 	 * Returns true if the costs for this candidate are lower than the gain. This means a class merge of master with mergee should increase performance
-	 * @return
+	 * @return result
 	 */
+	@Override
 	public boolean evaluate() {
 		double gainTerm1 = ProfilingConfig.CMA__GAMMA*totalMasterActivations*ProfilingConfig.COST_NEW_REFERENCE;
 		double gainTerm2 = ProfilingConfig.CMA_DELTA*totalMergeeActivations*ProfilingConfig.COST_NEW_REFERENCE;

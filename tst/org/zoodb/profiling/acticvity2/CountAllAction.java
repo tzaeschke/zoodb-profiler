@@ -3,7 +3,6 @@ package org.zoodb.profiling.acticvity2;
 import javax.jdo.Extent;
 import javax.jdo.PersistenceManager;
 
-import org.zoodb.profiling.model1.AuthorContact;
 import org.zoodb.profiling.model2.Author;
 import org.zoodb.profiling.model2.Conference;
 import org.zoodb.profiling.model2.ConferenceSeries;
@@ -18,6 +17,7 @@ import org.zoodb.profiling.simulator.IAction;
  */
 public class CountAllAction implements IAction {
 
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		pm.currentTransaction().begin();

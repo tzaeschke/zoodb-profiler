@@ -21,9 +21,9 @@ import org.zoodb.profiling.model2.PublicationSplit;
 
 public class ConfigHandler extends DefaultHandler {
 	
-	public static Set<Publication> newPS= new HashSet<Publication>(650000);
-    public static Map<String,Author> authorMap = new HashMap<String,Author>(600000); 
-    public static Map<String,Conference> conferenceMap = new HashMap<String,Conference>(20000);
+	public static Set<Publication> newPS= new HashSet<>(650000);
+    public static Map<String,Author> authorMap = new HashMap<>(600000); 
+    public static Map<String,Conference> conferenceMap = new HashMap<>(20000);
 
     private Locator locator;
 
@@ -49,11 +49,13 @@ public class ConfigHandler extends DefaultHandler {
     
     private String[] unwantedElems = new String[] {"article","book","incollection","phdthesis","mastersthesis","www"};
 
-    public void setDocumentLocator(Locator locator) {
+    @Override
+	public void setDocumentLocator(Locator locator) {
         this.locator = locator;
     }
 
-    public void startElement(String namespaceURI, String localName, String rawName, Attributes atts) throws SAXException {
+    @Override
+	public void startElement(String namespaceURI, String localName, String rawName, Attributes atts) throws SAXException {
     	// we do not want to inspect these elements
     	for (int i=0;i<unwantedElems.length;i++) {
     		if (rawName.equalsIgnoreCase(unwantedElems[i])) {
@@ -87,7 +89,8 @@ public class ConfigHandler extends DefaultHandler {
     	
     }
 
-    public void endElement(String namespaceURI, String localName, String rawName) throws SAXException {
+    @Override
+	public void endElement(String namespaceURI, String localName, String rawName) throws SAXException {
 
     	//if (rawName.equals("author") || rawName.equals("editor")) {
     	if (rawName.equals("author") && currentElement.equalsIgnoreCase("inproceedings") ) {
@@ -197,7 +200,8 @@ public class ConfigHandler extends DefaultHandler {
         }
     }
 
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    @Override
+	public void characters(char[] ch, int start, int length) throws SAXException {
         if (currentElement.equals("inproceedings") || currentElement.equals("proceedings")) {
         	
         	if (insideAuthor) {
@@ -218,17 +222,20 @@ public class ConfigHandler extends DefaultHandler {
         System.out.println(mode + " Line: " + exception.getLineNumber() + " URI: " + exception.getSystemId() + "\n" + " Message: "  + exception.getMessage());
     }
 
-    public void warning(SAXParseException exception) throws SAXException {
+    @Override
+	public void warning(SAXParseException exception) throws SAXException {
         Message("**Parsing Warning**\n", exception);
         throw new SAXException("Warning encountered");
     }
 
-    public void error(SAXParseException exception) throws SAXException {
+    @Override
+	public void error(SAXParseException exception) throws SAXException {
         Message("**Parsing Error**\n", exception);
         throw new SAXException("Error encountered");
     }
 
-    public void fatalError(SAXParseException exception) throws SAXException {
+    @Override
+	public void fatalError(SAXParseException exception) throws SAXException {
         Message("**Parsing Fatal Error**\n", exception);
         throw new SAXException("Fatal Error encountered");
     }

@@ -17,6 +17,7 @@ import org.zoodb.profiling.simulator.IAction;
  */
 public class CountAllAction implements IAction {
 
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		
 		pm.currentTransaction().begin();

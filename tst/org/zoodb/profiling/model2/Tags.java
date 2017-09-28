@@ -13,7 +13,7 @@ public class Tags extends PersistenceCapableImpl     {
 	
 	
 	public Tags() {
-		sourceT = new LinkedList<Publication>();
+		sourceT = new LinkedList<>();
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class Tags extends PersistenceCapableImpl     {
 	
 	/**
 	 * Setter method of the reverse direction of the association sourceT.
-	 * @param SourceT.
+	 * @param sourceT source
 	 */
 	public void setSourceT(List<Publication> sourceT) {
 		activateWrite("sourceT");

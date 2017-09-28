@@ -14,6 +14,7 @@ public class SplitAction extends AbstractAction {
 	 * (non-Javadoc)
 	 * @see ch.ethz.globis.jdo.simulator.IAction#executeAction(javax.jdo.PersistenceManager)
 	 */
+	@Override
 	public Object executeAction(PersistenceManager pm) {
 		//DBLPQueries queries = new DBLPQueries(pm);
 		
